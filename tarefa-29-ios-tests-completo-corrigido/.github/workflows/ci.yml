@@ -1,0 +1,40 @@
+
+name: iOS Tests - Complete Project
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ios-tests:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Appium
+        run: npm i --save-dev appium
+
+      - name: Wait for Appium to start
+        run: |
+          echo "Aguardando Appium iniciar..."
+          for i in {1..5}
+          do
+            if curl -s http://localhost:4723/wd/hub/status | grep '"status":0'; then
+              echo "Appium está pronto!"
+              break
+            fi
+            echo "Appium ainda não está pronto... tentando novamente em 5s"
+            sleep 5
+          done
+
+      - name: Run iOS Tests
+        run: npm test
