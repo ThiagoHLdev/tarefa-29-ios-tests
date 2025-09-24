@@ -1,5 +1,5 @@
 
-name: iOS Tests
+name: iOS Tests - Complete Project
 
 on:
   push:
@@ -45,4 +45,4 @@ jobs:
           done
 
       - name: Run iOS Tests
-        run: npx wdio run wdio.conf.js
+        run: npm test
