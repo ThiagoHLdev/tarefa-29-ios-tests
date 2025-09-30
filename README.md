@@ -1,54 +1,19 @@
-# Tarefa 29 - Testes de Aplicações iOS
+# Tarefa 29 – iOS Tests
 
-Este projeto contém uma suíte de testes automatizados para o aplicativo LojaEBAC (iOS).
+Este repositório contém a configuração limpa para rodar os testes iOS com WebdriverIO e Appium no GitHub Actions.
 
-## Objetivo
-Automatizar o fluxo completo de compra no app:
-1. Login
-2. Acessar área Browse (Busca)
-3. Selecionar um produto
-4. Adicionar ao carrinho
-5. Adicionar endereço (se não existir)
-6. Ir para o pagamento
-7. Finalizar checkout
+## 🚀 Estrutura
+- `wdio.conf.js` → Configuração do WebdriverIO apontando para Appium local.
+- `tests/` → Testes automatizados de exemplo.
+- `.github/workflows/ci.yml` → Pipeline do GitHub Actions.
 
-## Estrutura do Projeto
-```
-tarefa-29-ios-tests
-│
-├── app
-│   ├── LojaEBAC-sim.app       # Para rodar em simuladores iOS
-│   └── LojaEBAC.ipa           # Para rodar em devices reais ou Sauce Labs
-│
-├── tests
-│   ├── login.test.js
-│   ├── browse.test.js
-│   ├── carrinho.test.js
-│   └── checkout.test.js
-│
-├── wdio.conf.js
-├── package.json
-└── README.md
-```
+## ▶️ Executando
+1. Certifique-se de ter o Appium instalado localmente para rodar em sua máquina.
+2. Execute os testes localmente:
+   ```bash
+   npx wdio
+   ```
+3. Ao dar push na branch `ci`, o workflow do GitHub Actions rodará automaticamente.
 
-## Pré-requisitos
-- Node.js instalado ([Download Node.js](https://nodejs.org/))
-- Appium instalado globalmente:
-```bash
-npm install -g appium
-```
-- WebdriverIO configurado no projeto
-
-## Como instalar as dependências
-```bash
-npm install
-```
-
-## Como rodar os testes
-Com o simulador rodando:
-```bash
-npx wdio
-```
-
-## Executando no Sauce Labs
-Configure suas credenciais no `wdio.conf.js` e utilize o arquivo `LojaEBAC.ipa`.
+---
+> Autor: Thiago Henrique Leite
