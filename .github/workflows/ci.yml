@@ -9,6 +9,10 @@ jobs:
   test:
     runs-on: macos-latest
 
+    defaults:
+      run:
+        working-directory: .   # garante que o npm rode na raiz correta
+
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
