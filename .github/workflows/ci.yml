@@ -9,15 +9,14 @@ jobs:
   test:
     runs-on: macos-latest
 
-    defaults:
-      run:
-        working-directory: .
-
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
         with:
-          path: .
+          fetch-depth: 0
+
+      - name: Listar arquivos para debug
+        run: ls -R
 
       - name: Instalar Node.js
         uses: actions/setup-node@v3
