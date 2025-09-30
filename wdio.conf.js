@@ -1,3 +1,5 @@
+const { join } = require('path');
+
 exports.config = {
   runner: 'local',
   hostname: 'localhost',
@@ -8,19 +10,16 @@ exports.config = {
   ],
   maxInstances: 1,
   capabilities: [{
-    platformName: "iOS",
-    'appium:platformVersion': "17.0",
-    'appium:deviceName': "iPhone 15",
-    'appium:automationName': "XCUITest",
+    platformName: 'iOS',
+    'appium:platformVersion': '17.0',
+    'appium:deviceName': 'iPhone 15',
+    'appium:automationName': 'XCUITest',
     'appium:app': join(process.cwd(), './app/LojaEBAC-sim.app'),
     'appium:noReset': true
   }],
-  loglevel: 'info',
-  framework: 'mocha',
-  reporters: ['spec'],
   services: ['appium'],
+  framework: 'mocha',
   mochaOpts: {
-    ui: 'bdd',
     timeout: 60000
   }
 }

@@ -1,22 +1,19 @@
-# Tarefa 29 – iOS Tests CI
+# Tarefa 29 – iOS Tests
 
-Este repositório contém o workflow configurado para rodar os testes iOS no **GitHub Actions**.
+Este repositório contém a configuração limpa para rodar os testes iOS com WebdriverIO e Appium no GitHub Actions.
 
-## 🚀 Como funciona
-
-- O workflow é disparado ao dar push na branch `ci`.
-- Ele sobe um serviço **Appium** como container dentro do job.
-- Aguarda o Appium iniciar e então executa os testes com **WebdriverIO** no **Sauce Labs**.
+## 🚀 Estrutura
+- `wdio.conf.js` → Configuração do WebdriverIO apontando para Appium local.
+- `tests/` → Testes automatizados de exemplo.
+- `.github/workflows/ci.yml` → Pipeline do GitHub Actions.
 
 ## ▶️ Executando
-1. Configure no repositório os **Secrets**:
-   - `SAUCE_USERNAME`
-   - `SAUCE_ACCESS_KEY`
-2. Suba o código para a branch `ci`:
+1. Certifique-se de ter o Appium instalado localmente para rodar em sua máquina.
+2. Execute os testes localmente:
    ```bash
-   git push origin ci
+   npx wdio
    ```
-3. O GitHub Actions irá iniciar os testes automaticamente.
+3. Ao dar push na branch `ci`, o workflow do GitHub Actions rodará automaticamente.
 
 ---
 > Autor: Thiago Henrique Leite

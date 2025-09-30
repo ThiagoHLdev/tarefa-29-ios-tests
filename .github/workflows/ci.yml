@@ -37,8 +37,5 @@ jobs:
           echo "Aguardando Appium iniciar..."
           sleep 15
 
-      - name: Executar testes no Sauce Labs
-        env:
-          SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
-          SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
+      - name: Executar testes no Appium local
         run: npx wdio
